@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'tags.apps.TagsConfig',
     'blog.apps.BlogConfig',
     'todo.apps.TodoConfig',
     'users.apps.UsersConfig',

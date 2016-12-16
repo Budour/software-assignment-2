@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'blog/entries/',include('blog.urls')),
     url(r'todo/',include('todo.urls')),
     url(r'users/',include('users.urls')),
+    url(r'tags/',include('tags.urls')),
 
 ]

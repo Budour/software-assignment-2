@@ -4,9 +4,9 @@ from . import views
 urlpatterns = [
 
     #/blog/
-    url(r'^$',views.index),
+    url(r'^$',views.detail),
 
     #/blog/12/
-    url(r'^(?P<blog_id>[0-9]+)/$',views.detail),
+    url(r'^(?P<blog_id>[0-9]+)/$',views.index),
 
 ]
