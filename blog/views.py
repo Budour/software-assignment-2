@@ -1,5 +1,7 @@
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render
+from django.contrib.auth.decorators import permission_required
+from django.core.exceptions import PermissionDenied
 
 # Create your views here.
 from django.http import Http404
@@ -36,3 +38,11 @@ def index(request, blog_id):
         return render(request, "blog/index.html", {"blog": blog})
     except Blog.DoesNotExist:
         raise Http404("We don't have any.")
+
+@permission_required('is_superuser')
+def show_all_blog(request):
+    return render(request, "blog/detail.html", {"blogs": Blog.objects.all()})
+
+@permission_required('is_superuser')
+def show_all_blog_from_user(request, userId):
+    return render(request, "blog/detail.html", {"blogs": Blog.objects.filter(owner=userId)})
